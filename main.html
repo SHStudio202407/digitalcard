@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>임선희 - 보험설계사 프로필</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>임선희 - 보험설계사 프로필</title>
+   <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* 헤더 영역 - 밝은 하늘색으로 변경 */
+        .header {
+            background: #4A90E2;
+            padding: 20px 20px 30px;
+            position: relative;
+        }
+
+        .company-logo {
+            width: 60px;
+            height: auto;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .profile-section {
+            text-align: center;
+            color: white;
+            padding-top: 20px;
+        }
+
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 60px;
+            border: 3px solid white;
+            margin-bottom: 15px;
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .profile-position {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* 연락처 정보 */
+        .contact-info {
+            padding: 20px;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 16px;
+            background: #4A90E2;
+            border-radius: 2px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 0 10px;
+        }
+
+        .contact-item i {
+            width: 24px;
+            margin-right: 15px;
+            color: #4A90E2;
+        }
+
+        /* 경력 정보 */
+        .career-info {
+            padding: 20px;
+            background: white;
+            border-top: 1px solid #eee;
+        }
+
+        .career-list {
+            list-style: none;
+            padding: 0 10px;
+        }
+
+        .career-list li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .career-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #4A90E2;
+        }
+
+        /* 보험사 로고 섹션 */
+        .logo-section {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* 로고 슬라이더 */
+        .logo-swiper {
+            width: 100%;
+            padding: 20px 0;
+        }
+
+        .logo-swiper .swiper-slide {
+            width: auto;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-swiper .swiper-slide img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* 상담 후기 섹션 */
+        .review-section {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .review-swiper {
+            padding-bottom: 40px;
+        }
+
+        .review-swiper .swiper-slide {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .review-content {
+            text-align: center;
+        }
+
+        .review-content h4 {
+            color: #4A90E2;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .review-content p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .customer-name {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* 상담 신청 버튼 */
+        .consult-btn {
+            display: block;
+            width: calc(100% - 40px);
+            max-width: 300px;
+            margin: 30px auto;
+            padding: 15px;
+            background: #4A90E2;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            box-shadow: 0 2px 6px rgba(74,144,226,0.3);
+        }
+
+        /* 푸터 */
+        footer {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* 페이지네이션 */
+        .swiper-pagination-bullet {
+            background: #4A90E2;
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 480px) {
+            .container {
+                border-radius: 0;
+                margin: 0;
+            }
+
+            .profile-photo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .profile-name {
+                font-size: 1.3rem;
+            }
+
+            .company-logo {
+                width: 50px;
+            }
+
+            .logo-section,
+            .review-section {
+                margin: 10px auto;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="./logo.png" alt="회사 로고" class="company-logo">
+            <div class="profile-section">
+                <img src="hum.jpg" alt="프로필 사진" class="profile-photo">
+                <h1 class="profile-name">임선희</h1>
+                <p class="profile-position">해온본부 / 다온지점 팀장</p>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <h2 class="section-title">연락처 정보</h2>
+            <div class="contact-item">
+                <i>📞</i>
+                <span>010-8422-5853</span>
+            </div>
+            <div class="contact-item">
+                <i>✉️</i>
+                <span>fj8216@nate.com</span>
+            </div>
+            <div class="contact-item">
+                <i>🌐</i>
+                <span>www.psfs.com</span>
+            </div>
+            <div class="contact-item">
+                <i>📍</i>
+                <span>서울시 마포구 마포대로 92, 효성해링턴스퀘어 A동 3층</span>
+            </div>
+        </div>
+
+        <div class="career-info">
+            <h2 class="section-title">주요 경력</h2>
+            <ul class="career-list">
+                <li>2024 피에스파인서비스 (화재보험상담, 보험리모델링, 보상청구상담)</li>
+                <li>2019 KGA 에셋 (보상청구상담)</li>
+                <li>2017 에이플러스에셋 (보상청구상담)</li>
+                <li>2014 삼성화재 TM</li>
+                <li>2009 삼성생명 매니저</li>
+                <li>2005 삼성생명 설계사</li>
+                <li>2004 한화생명 설계사</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <section class="logo-section">
+        <h3 class="section-title">지원하는 보험사</h3>
+        <div class="swiper logo-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="./1.jpg" alt="보험사 1"></div>
+                <div class="swiper-slide"><img src="./2.jpg" alt="보험사 2"></div>
+                <div class="swiper-slide"><img src="./3.jpg" alt="보험사 3"></div>
+                <div class="swiper-slide"><img src="./4.jpg" alt="보험사 4"></div>
+                <div class="swiper-slide"><img src="./5.jpg" alt="보험사 5"></div>
+                <div class="swiper-slide"><img src="./6.jpg" alt="보험사 6"></div>
+                <div class="swiper-slide"><img src="./7.jpg" alt="보험사 7"></div>
+                <div class="swiper-slide"><img src="./8.jpg" alt="보험사 8"></div>
+                <div class="swiper-slide"><img src="./9.jpg" alt="보험사 9"></div>
+                <div class="swiper-slide"><img src="./10.jpg" alt="보험사 10"></div>
+                <div class="swiper-slide"><img src="./11.jpg" alt="보험사 11"></div>
+                <div class="swiper-slide"><img src="./12.jpg" alt="보험사 12"></div>
+                <div class="swiper-slide"><img src="./13.jpg" alt="보험사 13"></div>
+                <div class="swiper-slide"><img src="./14.jpg" alt="보험사 14"></div>
+                <div class="swiper-slide"><img src="./15.jpg" alt="보험사 15"></div>
+                <div class="swiper-slide"><img src="./16.jpg" alt="보험사 16"></div>
+                <div class="swiper-slide"><img src="./17.jpg" alt="보험사 17"></div>
+                <div class="swiper-slide"><img src="./18.jpg" alt="보험사 18"></div>
+                <div class="swiper-slide"><img src="./19.jpg" alt="보험사 19"></div>
+                <div class="swiper-slide"><img src="./20.jpg" alt="보험사 20"></div>
+            </div>
+        </div>
+    </section>
+ <section class="review-section">
+        <h3 class="section-title">상담 후기</h3>
+        <div class="swiper review-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="review-content">
+                        <h4>우리 가족 똑부러진 맞춤설계</h4>
+                        <p>보험에 대해 아무것도 몰라 보험료만 내고 있었는데 우리 가족에 맞는 보험설계, 머리에 쏙쏙 들어오는 설명 해주셔서 감사합니다. 대박 나세요 ^_^</p>
+                        <p class="customer-name">-- 오** 고객님</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="review-content">
+                        <h4>적절한 상담</h4>
+                        <p>적절한 상품을 추천해 주셔서 만족스럽습니다. 덕분에 보험에 대한 기존의 부담을 줄일 수 있었어요.</p>
+                        <p class="customer-name">-- 김** 고객님</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <a href="https://forms.gle/7qpAvcgxsUJKeJti9" class="consult-btn" target="_blank">상담 신청하기</a>
+
+    <footer>
+        <p>© 2024 임선희 모든 권리 보유.</p>
+        <p>도입 문의 : qt2041@naver.com</p>
+    </footer>
+
+    <script>
+        // 보험사 로고 슬라이더
+        new Swiper('.logo-swiper', {
+            slidesPerView: 'auto',
+            spaceBetween: 20,
+            centeredSlides: true,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 3,
+                },
+                480: {
+                    slidesPerView: 4,
+                },
+                768: {
+                    slidesPerView: 5,
+                }
+            }
+        });
+
+        // 상담 후기 슬라이더
+        new Swiper('.review-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            }
+        });
+    </script>
+</body>
+</html>
