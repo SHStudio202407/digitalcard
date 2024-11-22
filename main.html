@@ -1,13 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
     <title>임선희 - 보험설계사 프로필</title>
-   <style>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -30,7 +29,6 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        /* 헤더 영역 - 밝은 하늘색으로 변경 */
         .header {
             background: #4A90E2;
             padding: 20px 20px 30px;
@@ -52,8 +50,8 @@
         }
 
         .profile-photo {
-            width: 120px;
-            height: 120px;
+            width: 140px;
+            height: 180px;
             border-radius: 60px;
             border: 3px solid white;
             margin-bottom: 15px;
@@ -70,7 +68,6 @@
             color: rgba(255,255,255,0.9);
         }
 
-        /* 연락처 정보 */
         .contact-info {
             padding: 20px;
             background: white;
@@ -109,7 +106,6 @@
             color: #4A90E2;
         }
 
-        /* 경력 정보 */
         .career-info {
             padding: 20px;
             background: white;
@@ -134,7 +130,6 @@
             color: #4A90E2;
         }
 
-        /* 보험사 로고 섹션 */
         .logo-section {
             max-width: 600px;
             margin: 20px auto;
@@ -144,19 +139,17 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        /* 로고 슬라이더 */
         .logo-swiper {
             width: 100%;
             padding: 20px 0;
         }
 
-        .logo-swiper .swiper-slide {
-            width: auto;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+/* 슬라이드 간격과 크기 조정 */
+.logo-swiper .swiper-slide {
+    width: auto;
+    height: 60px;
+    padding: 0 10px;
+}
 
         .logo-swiper .swiper-slide img {
             height: 40px;
@@ -164,7 +157,6 @@
             object-fit: contain;
         }
 
-        /* 상담 후기 섹션 */
         .review-section {
             max-width: 600px;
             margin: 20px auto;
@@ -205,7 +197,6 @@
             font-size: 0.9rem;
         }
 
-        /* 상담 신청 버튼 */
         .consult-btn {
             display: block;
             width: calc(100% - 40px);
@@ -221,7 +212,6 @@
             box-shadow: 0 2px 6px rgba(74,144,226,0.3);
         }
 
-        /* 푸터 */
         footer {
             background: #333;
             color: white;
@@ -236,12 +226,10 @@
             opacity: 0.8;
         }
 
-        /* 페이지네이션 */
         .swiper-pagination-bullet {
             background: #4A90E2;
         }
 
-        /* 반응형 디자인 */
         @media (max-width: 480px) {
             .container {
                 border-radius: 0;
@@ -267,6 +255,29 @@
                 border-radius: 0;
             }
         }
+
+.swiper-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* swiper 컨테이너에 여유 공간 추가 */
+.logo-swiper {
+    width: 100%;
+    padding: 20px;
+    overflow: visible; /* overflow 제한 해제 */
+}
+
+.logo-section {
+    width: 100%;
+    max-width: none; /* max-width 제한 제거 */
+    margin: 20px 0; /* 좌우 마진 제거 */
+    padding: 20px 0; /* 좌우 패딩 제거 */
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
     </style>
 </head>
 <body>
@@ -314,7 +325,6 @@
         </div>
     </div>
 
-
     <section class="logo-section">
         <h3 class="section-title">지원하는 보험사</h3>
         <div class="swiper logo-swiper">
@@ -342,7 +352,8 @@
             </div>
         </div>
     </section>
- <section class="review-section">
+
+    <section class="review-section">
         <h3 class="section-title">상담 후기</h3>
         <div class="swiper review-swiper">
             <div class="swiper-wrapper">
@@ -373,28 +384,27 @@
     </footer>
 
     <script>
-        // 보험사 로고 슬라이더
-        new Swiper('.logo-swiper', {
-            slidesPerView: 'auto',
+  // 보험사 로고 슬라이더
+new Swiper('.logo-swiper', {
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    centeredSlides: false, // 중앙 정렬 해제
+    loop: true,
+    speed: 3000,
+    autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+    },
+    allowTouchMove: true,
+    breakpoints: {
+        320: {
             spaceBetween: 20,
-            centeredSlides: true,
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            breakpoints: {
-                320: {
-                    slidesPerView: 3,
-                },
-                480: {
-                    slidesPerView: 4,
-                },
-                768: {
-                    slidesPerView: 5,
-                }
-            }
-        });
+        },
+        768: {
+            spaceBetween: 30,
+        }
+    }
+});
 
         // 상담 후기 슬라이더
         new Swiper('.review-swiper', {
