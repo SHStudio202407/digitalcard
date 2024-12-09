@@ -130,6 +130,49 @@
             color: #4A90E2;
         }
 
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            padding: 0 10px;
+        }
+
+        .button-group .btn {
+            flex: 1;
+            padding: 10px 20px;
+            background: #4A90E2;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .mobile-button-group {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 10px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            justify-content: space-between;
+        }
+
+        .mobile-button-group .btn {
+            width: calc(50% - 5px);
+            padding: 15px;
+            background: #4A90E2;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+
         .logo-section {
             max-width: 600px;
             margin: 20px auto;
@@ -137,6 +180,7 @@
             background: white;
             border-radius: 20px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
 
         .logo-swiper {
@@ -144,12 +188,16 @@
             padding: 20px 0;
         }
 
-/* 슬라이드 간격과 크기 조정 */
-.logo-swiper .swiper-slide {
-    width: auto;
-    height: 60px;
-    padding: 0 10px;
-}
+        .swiper-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-swiper .swiper-slide {
+            width: auto;
+            height: 60px;
+            padding: 0 10px;
+        }
 
         .logo-swiper .swiper-slide img {
             height: 40px;
@@ -197,21 +245,6 @@
             font-size: 0.9rem;
         }
 
-        .consult-btn {
-            display: block;
-            width: calc(100% - 40px);
-            max-width: 300px;
-            margin: 30px auto;
-            padding: 15px;
-            background: #4A90E2;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            box-shadow: 0 2px 6px rgba(74,144,226,0.3);
-        }
-
         footer {
             background: #333;
             color: white;
@@ -226,10 +259,58 @@
             opacity: 0.8;
         }
 
-        .swiper-pagination-bullet {
-            background: #4A90E2;
+        /* PC 환경 최적화 */
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1000px;
+                display: grid;
+                grid-template-columns: 350px 1fr;
+                grid-template-areas: 
+                    "header main"
+                    "header career";
+                min-height: 600px;
+                margin: 40px auto;
+            }
+
+            .header {
+                grid-area: header;
+                height: 100%;
+                padding: 40px 20px;
+            }
+
+            .profile-photo {
+                width: 200px;
+                height: 260px;
+                margin-bottom: 30px;
+            }
+
+            .contact-info {
+                grid-area: main;
+                padding: 40px;
+            }
+
+            .career-info {
+                grid-area: career;
+                border-top: none;
+                border-left: 1px solid #eee;
+                padding: 40px;
+            }
+
+            .button-group {
+                padding: 0;
+            }
+
+            .logo-section,
+            .review-section {
+                max-width: 1000px;
+            }
+
+            .mobile-button-group {
+                display: none;
+            }
         }
 
+        /* 모바일 환경 최적화 */
         @media (max-width: 480px) {
             .container {
                 border-radius: 0;
@@ -237,8 +318,8 @@
             }
 
             .profile-photo {
-                width: 100px;
-                height: 100px;
+                width: 120px;
+                height: 160px;
             }
 
             .profile-name {
@@ -249,35 +330,24 @@
                 width: 50px;
             }
 
+            .button-group {
+                display: none;
+            }
+
+            .mobile-button-group {
+                display: flex;
+            }
+
             .logo-section,
             .review-section {
                 margin: 10px auto;
                 border-radius: 0;
             }
+
+            footer {
+                margin-bottom: 80px;
+            }
         }
-
-.swiper-wrapper {
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
-
-/* swiper 컨테이너에 여유 공간 추가 */
-.logo-swiper {
-    width: 100%;
-    padding: 20px;
-    overflow: visible; /* overflow 제한 해제 */
-}
-
-.logo-section {
-    width: 100%;
-    max-width: none; /* max-width 제한 제거 */
-    margin: 20px 0; /* 좌우 마진 제거 */
-    padding: 20px 0; /* 좌우 패딩 제거 */
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
     </style>
 </head>
 <body>
@@ -308,6 +378,10 @@
             <div class="contact-item">
                 <i>📍</i>
                 <span>서울시 마포구 마포대로 92, 효성해링턴스퀘어 A동 3층</span>
+            </div>
+            <div class="button-group">
+                <a href="#" class="btn" onclick="downloadVCard(); return false;">연락처 저장하기</a>
+                <a href="https://forms.gle/7qpAvcgxsUJKeJti9" class="btn" target="_blank">상담 신청하기</a>
             </div>
         </div>
 
@@ -360,65 +434,93 @@
                 <div class="swiper-slide">
                     <div class="review-content">
                         <h4>우리 가족 똑부러진 맞춤설계</h4>
-                        <p>보험에 대해 아무것도 몰라 보험료만 내고 있었는데 우리 가족에 맞는 보험설계, 머리에 쏙쏙 들어오는 설명 해주셔서 감사합니다. 대박 나세요 ^_^</p>
-                        <p class="customer-name">-- 오** 고객님</p>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="review-content">
-                        <h4>적절한 상담</h4>
-                        <p>적절한 상품을 추천해 주셔서 만족스럽습니다. 덕분에 보험에 대한 기존의 부담을 줄일 수 있었어요.</p>
-                        <p class="customer-name">-- 김** 고객님</p>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
-    </section>
+<p>보험에 대해 아무것도 몰라 보험료만 내고 있었는데 우리 가족에게 꼭 필요한 보장들로 맞춤 설계해주시고 이해하기 쉽게 설명해주셔서 감사합니다. 대박 나세요 ^_^</p>
+                       <p class="customer-name">-- 오** 고객님</p>
+                   </div>
+               </div>
+               <div class="swiper-slide">
+                   <div class="review-content">
+                       <h4>적절한 상담</h4>
+                       <p>적절한 상품을 추천해 주셔서 만족스럽습니다. 덕분에 보험에 대한 기존의 부담을 줄일 수 있었어요.</p>
+                       <p class="customer-name">-- 김** 고객님</p>
+                   </div>
+               </div>
+           </div>
+           <div class="swiper-pagination"></div>
+       </div>
+   </section>
 
-    <a href="https://forms.gle/7qpAvcgxsUJKeJti9" class="consult-btn" target="_blank">상담 신청하기</a>
+   <div class="mobile-button-group">
+       <a href="#" class="btn" onclick="downloadVCard(); return false;">연락처 저장하기</a>
+       <a href="https://forms.gle/7qpAvcgxsUJKeJti9" class="btn" target="_blank">상담 신청하기</a>
+   </div>
 
-    <footer>
-        <p>© 2024 임선희 모든 권리 보유.</p>
-        <p>도입 문의 : qt2041@naver.com</p>
-    </footer>
+   <footer>
+       <p>© 2024 임선희 모든 권리 보유.</p>
+       <p>도입 문의 : qt2041@naver.com</p>
+   </footer>
 
-    <script>
-  // 보험사 로고 슬라이더
-new Swiper('.logo-swiper', {
-    slidesPerView: 'auto',
-    spaceBetween: 30,
-    centeredSlides: false, // 중앙 정렬 해제
-    loop: true,
-    speed: 3000,
-    autoplay: {
-        delay: 0,
-        disableOnInteraction: false,
-    },
-    allowTouchMove: true,
-    breakpoints: {
-        320: {
-            spaceBetween: 20,
-        },
-        768: {
-            spaceBetween: 30,
-        }
-    }
-});
+   <script>
+       // vCard 다운로드 함수
+       function downloadVCard() {
+           const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:임선희
+TITLE:해온본부 다온지점 팀장
+TEL;TYPE=CELL:010-8422-5853
+EMAIL:fj8216@nate.com
+URL:https://www.psfs.kr
+ADR;TYPE=WORK:;;서울시 마포구 마포대로 92\, 효성해링턴스퀘어 A동 3층;;;
+ORG:피에스파인서비스
+END:VCARD`;
 
-        // 상담 후기 슬라이더
-        new Swiper('.review-swiper', {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            }
-        });
-    </script>
+           const blob = new Blob([vcard], { type: 'text/vcard' });
+           const url = window.URL.createObjectURL(blob);
+           const a = document.createElement('a');
+           a.style.display = 'none';
+           a.href = url;
+           a.download = '임선희_프로필.vcf';
+           document.body.appendChild(a);
+           a.click();
+           window.URL.revokeObjectURL(url);
+           document.body.removeChild(a);
+       }
+
+       // 보험사 로고 슬라이더
+       new Swiper('.logo-swiper', {
+           slidesPerView: 'auto',
+           spaceBetween: 30,
+           centeredSlides: false,
+           loop: true,
+           speed: 3000,
+           autoplay: {
+               delay: 0,
+               disableOnInteraction: false,
+           },
+           allowTouchMove: true,
+           breakpoints: {
+               320: {
+                   spaceBetween: 20,
+               },
+               768: {
+                   spaceBetween: 30,
+               }
+           }
+       });
+
+       // 상담 후기 슬라이더
+       new Swiper('.review-swiper', {
+           slidesPerView: 1,
+           spaceBetween: 30,
+           pagination: {
+               el: '.swiper-pagination',
+               clickable: true,
+           },
+           autoplay: {
+               delay: 5000,
+               disableOnInteraction: false,
+           }
+       });
+   </script>
 </body>
 </html>
