@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+    <title>SH스튜디오 - 외주개발</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            background: #4A90E2;
+            padding: 40px 20px;
+            position: relative;
+            text-align: center;
+        }
+
+        .company-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 4px solid white;
+            background: white;
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .profile-section {
+            text-align: center;
+            color: white;
+        }
+
+        .profile-name {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .profile-position {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 15px;
+        }
+
+        .profile-description {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 400px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .contact-info {
+            padding: 20px;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 16px;
+            background: #4A90E2;
+            border-radius: 2px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 0 10px;
+        }
+
+        .contact-item i {
+            width: 24px;
+            margin-right: 15px;
+            color: #4A90E2;
+        }
+
+        .career-info {
+            padding: 20px;
+            background: white;
+            border-top: 1px solid #eee;
+        }
+
+        .career-list {
+            list-style: none;
+            padding: 0 10px;
+        }
+
+        .career-list li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .career-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #4A90E2;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            padding: 0 10px;
+        }
+
+        .button-group .btn {
+            flex: 1;
+            padding: 10px 20px;
+            background: #4A90E2;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .mobile-button-group {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 10px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            justify-content: space-between;
+        }
+
+        .mobile-button-group .btn {
+            width: calc(50% - 5px);
+            padding: 15px;
+            background: #4A90E2;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .logo-section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .logo-swiper {
+            width: 100%;
+            padding: 10px 0;
+        }
+
+        .logo-swiper .swiper-slide {
+            width: 362px;
+            height: 271px;
+            padding: 0;
+        }
+
+        .logo-swiper .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-swiper .swiper-slide:hover img {
+            transform: scale(1.02);
+        }
+
+        .swiper-pagination {
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .swiper-pagination-bullet {
+            width: 8px;
+            height: 8px;
+            background: #4A90E2;
+            opacity: 0.5;
+        }
+
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+        }
+
+        .review-section {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .review-swiper {
+            padding-bottom: 40px;
+        }
+
+        .review-swiper .swiper-slide {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .review-content {
+            text-align: center;
+        }
+
+        .review-content h4 {
+            color: #4A90E2;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .review-content p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .customer-name {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1000px;
+                display: grid;
+                grid-template-columns: 350px 1fr;
+                grid-template-areas: 
+                    "header main"
+                    "header career";
+                min-height: 600px;
+                margin: 40px auto;
+            }
+
+            .header {
+                grid-area: header;
+                height: 100%;
+                padding: 60px 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .company-logo {
+                width: 180px;
+                height: 180px;
+            }
+
+            .contact-info {
+                grid-area: main;
+                padding: 40px;
+            }
+
+            .career-info {
+                grid-area: career;
+                border-top: none;
+                border-left: 1px solid #eee;
+                padding: 40px;
+            }
+
+            .button-group {
+                padding: 0;
+            }
+
+            .logo-section,
+            .review-section {
+                max-width: 1000px;
+            }
+
+            .mobile-button-group {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                border-radius: 0;
+                margin: 0;
+            }
+
+            .company-logo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .profile-name {
+                font-size: 1.5rem;
+            }
+
+            .button-group {
+                display: none;
+            }
+
+            .mobile-button-group {
+                display: flex;
+            }
+
+            .logo-section,
+            .review-section {
+                margin: 10px auto;
+                border-radius: 0;
+            }
+
+            .logo-swiper .swiper-slide {
+                width: 300px;
+                height: 225px;
+            }
+
+            footer {
+                margin-bottom: 80px;
+            }
+        }
+.social-info {
+    padding: 20px;
+    background: white;
+    border-top: 1px solid #eee;
+}
+
+.social-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.social-item {
+    text-align: center;
+    flex: 0 1 auto;
+}
+
+.social-item img {
+    width: 80px;  /* 크기 축소 */
+    height: 80px; /* 크기 축소 */
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: transform 0.3s ease;
+}
+
+.social-item img:hover {
+    transform: scale(1.05);
+}
+
+.social-item span {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 4px;
+}
+
+@media (max-width: 480px) {
+    .social-grid {
+        gap: 15px;
+    }
+    
+    .social-item img {
+        width: 60px;  /* 모바일에서 더 작게 */
+        height: 60px;
+    }
+
+    .social-item span {
+        font-size: 0.8rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        grid-template-areas: 
+            "header main"
+            "header social"
+            "header career";
+    }
+    
+    .social-info {
+        grid-area: social;
+        border-top: none;
+        border-left: 1px solid #eee;
+        padding: 40px;
+    }
+
+    .social-item img {
+        width: 100px;  /* PC에서는 약간 더 크게 */
+        height: 100px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="./logo.png" alt="회사 로고" class="company-logo">
+            <div class="profile-section">
+                <h1 class="profile-name">비즈니</h1>
+                <p class="profile-position">SH스튜디오 / 총괄팀장</p>
+                <p class="profile-description">기업 솔루션 컨설팅 및 개발 전문가</p>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <h2 class="section-title">연락처 정보</h2>
+            <div class="contact-item">
+                <i>📞</i>
+                <a href="tel:010-6449-9336"><span>010-6449-9336</span></a>
+            </div>
+            <div class="contact-item">
+                <i>✉️</i>
+                <a href="mailto:qt2041@naver.com"><span>qt2041@naver.com</span></a>
+            </div>
+            <div class="contact-item">
+                <i>🌐</i>
+                <a href="https://blog.naver.com/qwescaq"><span>https://blog.naver.com/qwescaq</span></a>
+            </div>
+            <div class="contact-item">
+                <i>📍</i>
+                <span>서울시 마포구</span>
+            </div>
+            <div class="button-group">
+                <a href="#" class="btn" onclick="downloadVCard(); return false;">연락처 저장하기</a>
+                <!--<a href="#" class="btn" target="_blank">상담 신청하기</a>-->
+            </div>
+        </div>
+<div class="social-info">
+    <h2 class="section-title">서비스 바로가기</h2>
+    <div class="social-grid">
+        <div class="social-item">
+            <a href="https://kmong.com/gig/601674"><img src="./social1.png" alt="소셜 서비스 1"></a>
+        </div>
+        <div class="social-item">
+            <a href="https://blog.naver.com/qwescaq"><img src="./social2.png" alt="소셜 서비스 2"></a>
+        </div>
+    </div>
+</div>
+
+        <div class="career-info">
+            <h2 class="section-title">주요 경력</h2>
+            <ul class="career-list">
+                <li>2024 ~ 현재 진행 중 디지털 명함 서비스 개시 및 고도화 진행 중</li>
+                <li>2024 ~ 현재 진행 중 크몽 업무 자동화 서비스 개시</li>
+                <li>2020 ~ 현재 진행 중 기업 정보보호 컨설팅 수행 및 개발 업무 수행</li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="logo-section">
+        <h3 class="section-title">지원하는 서비스</h3>
+        <div class="swiper logo-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="./1.png" alt="서비스1"></div>
+                <div class="swiper-slide"><img src="./2.png" alt="서비스2"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <section class="review-section">
+        <h3 class="section-title">서비스 후기</h3>
+        <div class="swiper review-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="review-content">
+                        <h4>⭐️⭐️⭐️⭐️⭐️ </h4>
+                        <p>여기저기 찾아보고, 정말 고민 많이해서 의뢰드렸습니다. 걱정하고 우려했던 시간이 아까울만큼 쓸데없는 고민이었습니다~ 처음부터 끝까지 몰랐던 부분도 직접 캐치해주시고, 새로운 요소도 찾아주시면서 정말 감사했습니다!</p>
+                        <p class="customer-name">-- 인** 고객님 (24.11.13)</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="review-content">
+                        <h4>⭐️⭐️⭐️⭐️⭐️</h4>
+                        <p>너무 편리하게 잘 만들어주셨어요~ 필요한거 있으면 계속 부탁 중이네요. 감사합니다!</p>
+                        <p class="customer-name">-- 새** 고객님 (24.11.11)</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="review-content">
+                        <h4>⭐️⭐️⭐️⭐️⭐️ </h4>
+<p>대만족! 원하는 반복 프로그램 만들어 주셔서 시간 절약이 많이 되네요~ 연락도 잘 받으셔서 너무 좋았어요! 친절한 상담 또한 감사합니다 :)</p>
+                        <p class="customer-name">-- 새** 고객님 (24.10.25)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <div class="mobile-button-group">
+        <a href="#" class="btn" onclick="downloadVCard(); return false;">연락처 저장하기</a>
+        <!--<a href="#" class="btn" target="_blank">상담 신청하기</a>-->
+    </div>
+
+    <footer>
+        <p>© 2024 SH스튜디오 모든 권리 보유.</p>
+        <p>도입 문의 : qt2041@naver.com</p>
+    </footer>
+
+    <script>
+        // vCard 다운로드 함수
+        function downloadVCard() {
+            const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:당필자
+TITLE:SH스튜디오 총괄팀장
+TEL;TYPE=CELL:010-6449-9336
+EMAIL:qt2041@naver.com
+URL:https://blog.naver.com/qwescaq
+ADR;TYPE=WORK:;;서울시 마포구;;;
+ORG:SH스튜디오
+END:VCARD`;
+
+            const blob = new Blob([vcard], { type: 'text/vcard' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = 'SH스튜디오_프로필.vcf';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        }
+
+        // 서비스 슬라이더
+        new Swiper('.logo-swiper', {
+            slidesPerView: 'auto',
+            centeredSlides: true,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                320: {
+                    spaceBetween: 10,
+                },
+                768: {
+                    spaceBetween: 20,
+                }
+            }
+        });
+
+        // 리뷰 슬라이더
+        new Swiper('.review-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            }
+        });
+    </script>
+</body>
+</html>
