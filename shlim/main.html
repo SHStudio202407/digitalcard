@@ -68,6 +68,52 @@
             color: rgba(255,255,255,0.9);
         }
 
+        .checklist-section {
+            background: #4A90E2;
+            padding: 20px;
+            color: white;
+        }
+
+        .checklist-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            text-align: center;
+            color: white;
+        }
+
+        .checklist-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .checklist-item {
+            background: white;
+            border-radius: 10px;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checklist-number {
+            width: 24px;
+            height: 24px;
+            background: #4A90E2;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .checklist-text {
+            color: #333;
+            font-size: 0.95rem;
+        }
+
         .contact-info {
             padding: 20px;
             background: white;
@@ -259,13 +305,13 @@
             opacity: 0.8;
         }
 
-        /* PC 환경 최적화 */
         @media (min-width: 1024px) {
             .container {
                 max-width: 1000px;
                 display: grid;
                 grid-template-columns: 350px 1fr;
                 grid-template-areas: 
+                    "header checklist"
                     "header main"
                     "header career";
                 min-height: 600px;
@@ -276,6 +322,11 @@
                 grid-area: header;
                 height: 100%;
                 padding: 40px 20px;
+            }
+
+            .checklist-section {
+                grid-area: checklist;
+                border-bottom: none;
             }
 
             .profile-photo {
@@ -310,7 +361,6 @@
             }
         }
 
-        /* 모바일 환경 최적화 */
         @media (max-width: 480px) {
             .container {
                 border-radius: 0;
@@ -361,6 +411,32 @@
             </div>
         </div>
 
+        <div class="checklist-section">
+            <h2 class="checklist-title">보험을 제대로 활용하는 체크리스트!</h2>
+            <div class="checklist-container">
+                <div class="checklist-item">
+                    <span class="checklist-number">1</span>
+                    <span class="checklist-text">청구한 보험금이 제대로 나왔는지?</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="checklist-number">2</span>
+                    <span class="checklist-text">중급분석을 통한 보험금 청구가 필요할때</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="checklist-number">3</span>
+                    <span class="checklist-text">가입한 보험의 중권분석 및 내용이 궁금할때</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="checklist-number">4</span>
+                    <span class="checklist-text">내가 필요한 보험의 비교분석이 필요할때</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="checklist-number">5</span>
+                    <span class="checklist-text">100세 시대 준비를 위해 - 재테크(목돈), 주택화재, 운전자, 실비, 암보험 등등</span>
+                </div>
+            </div>
+        </div>
+
         <div class="contact-info">
             <h2 class="section-title">연락처 정보</h2>
             <div class="contact-item">
@@ -373,7 +449,7 @@
             </div>
             <div class="contact-item">
                 <i>🌐</i>
-                <a href="https://www.psfs.kr"><span>www.psfs.kr</span></a>
+                <a href="http://www.metarich.kr/"><span>www.metarich.kr</span></a>
             </div>
             <div class="contact-item">
                 <i>📍</i>
@@ -399,7 +475,7 @@
         </div>
     </div>
 
-    <section class="logo-section">
+<section class="logo-section">
         <h3 class="section-title">지원하는 보험사</h3>
         <div class="swiper logo-swiper">
             <div class="swiper-wrapper">
@@ -434,36 +510,36 @@
                 <div class="swiper-slide">
                     <div class="review-content">
                         <h4>우리 가족 똑부러진 맞춤설계</h4>
-<p>보험에 대해 아무것도 몰라 보험료만 내고 있었는데 우리 가족에게 꼭 필요한 보장들로 맞춤 설계해주시고 이해하기 쉽게 설명해주셔서 감사합니다. 대박 나세요 ^_^</p>
-                       <p class="customer-name">-- 오** 고객님</p>
-                   </div>
-               </div>
-               <div class="swiper-slide">
-                   <div class="review-content">
-                       <h4>적절한 상담</h4>
-                       <p>적절한 상품을 추천해 주셔서 만족스럽습니다. 덕분에 보험에 대한 기존의 부담을 줄일 수 있었어요.</p>
-                       <p class="customer-name">-- 김** 고객님</p>
-                   </div>
-               </div>
-           </div>
-           <div class="swiper-pagination"></div>
-       </div>
-   </section>
+                        <p>보험에 대해 아무것도 몰라 보험료만 내고 있었는데 우리 가족에게 꼭 필요한 보장들로 맞춤 설계해주시고 이해하기 쉽게 설명해주셔서 감사합니다. 대박 나세요 ^_^</p>
+                        <p class="customer-name">-- 오** 고객님</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="review-content">
+                        <h4>적절한 상담</h4>
+                        <p>적절한 상품을 추천해 주셔서 만족스럽습니다. 덕분에 보험에 대한 기존의 부담을 줄일 수 있었어요.</p>
+                        <p class="customer-name">-- 김** 고객님</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
 
-   <div class="mobile-button-group">
-       <a href="#" class="btn" onclick="downloadVCard(); return false;">연락처 저장하기</a>
-       <a href="https://forms.gle/7qpAvcgxsUJKeJti9" class="btn" target="_blank">상담 신청하기</a>
-   </div>
+    <div class="mobile-button-group">
+        <a href="#" class="btn" onclick="downloadVCard(); return false;">연락처 저장하기</a>
+        <a href="https://forms.gle/7qpAvcgxsUJKeJti9" class="btn" target="_blank">상담 신청하기</a>
+    </div>
 
-   <footer>
-       <p>© 2024 임선희 모든 권리 보유.</p>
-       <p>도입 문의 : qt2041@naver.com</p>
-   </footer>
+    <footer>
+        <p>© 2024 임선희 모든 권리 보유.</p>
+        <p>도입 문의 : qt2041@naver.com</p>
+    </footer>
 
-   <script>
-       // vCard 다운로드 함수
-       function downloadVCard() {
-           const vcard = `BEGIN:VCARD
+    <script>
+        // vCard 다운로드 함수
+        function downloadVCard() {
+            const vcard = `BEGIN:VCARD
 VERSION:3.0
 FN:임선희
 TITLE:해온본부 다온지점 팀장
@@ -474,53 +550,53 @@ ADR;TYPE=WORK:;;서울시 마포구 마포대로 92\, 효성해링턴스퀘어 A
 ORG:피에스파인서비스
 END:VCARD`;
 
-           const blob = new Blob([vcard], { type: 'text/vcard' });
-           const url = window.URL.createObjectURL(blob);
-           const a = document.createElement('a');
-           a.style.display = 'none';
-           a.href = url;
-           a.download = '임선희_프로필.vcf';
-           document.body.appendChild(a);
-           a.click();
-           window.URL.revokeObjectURL(url);
-           document.body.removeChild(a);
-       }
+            const blob = new Blob([vcard], { type: 'text/vcard' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = '임선희_프로필.vcf';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        }
 
-       // 보험사 로고 슬라이더
-       new Swiper('.logo-swiper', {
-           slidesPerView: 'auto',
-           spaceBetween: 30,
-           centeredSlides: false,
-           loop: true,
-           speed: 3000,
-           autoplay: {
-               delay: 0,
-               disableOnInteraction: false,
-           },
-           allowTouchMove: true,
-           breakpoints: {
-               320: {
-                   spaceBetween: 20,
-               },
-               768: {
-                   spaceBetween: 30,
-               }
-           }
-       });
+        // 보험사 로고 슬라이더
+        new Swiper('.logo-swiper', {
+            slidesPerView: 'auto',
+            spaceBetween: 30,
+            centeredSlides: false,
+            loop: true,
+            speed: 3000,
+            autoplay: {
+                delay: 0,
+                disableOnInteraction: false,
+            },
+            allowTouchMove: true,
+            breakpoints: {
+                320: {
+                    spaceBetween: 20,
+                },
+                768: {
+                    spaceBetween: 30,
+                }
+            }
+        });
 
-       // 상담 후기 슬라이더
-       new Swiper('.review-swiper', {
-           slidesPerView: 1,
-           spaceBetween: 30,
-           pagination: {
-               el: '.swiper-pagination',
-               clickable: true,
-           },
-           autoplay: {
-               delay: 5000,
-               disableOnInteraction: false,
-           }
-       });
-   </script>
+        // 상담 후기 슬라이더
+        new Swiper('.review-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            }
+        });
+    </script>
 </body>
 </html>
